@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surfer Extension</title>
+  
+  <!-- Google Fonts - Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-color: #121212;
+      --card-bg: #1e1e1e;
+      --text-color: #e0e0e0;
+      --accent-color: #8c52ff;
+      --accent-hover: #9d6aff;
+      --error-color: #ff5252;
+      --success-color: #4caf50;
+      --border-radius: 8px;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      width: 320px;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding: 16px;
+    }
+    
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    
+    .header::before {
+      content: "🏄";
+      font-size: 20px;
+      margin-right: 8px;
+    }
+    
+    h1 {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    
+    .card {
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .video-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    
+    .video-option {
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      border-radius: var(--border-radius);
+      background-color: rgba(255, 255, 255, 0.05);
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    
+    .video-option:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .video-option.selected {
+      background-color: rgba(140, 82, 255, 0.2);
+      border: 1px solid var(--accent-color);
+    }
+    
+    .video-option input {
+      margin-right: 8px;
+    }
+    
+    .video-option label {
+      flex: 1;
+      cursor: pointer;
+    }
+    
+    button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: var(--border-radius);
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    
+    button:hover {
+      background-color: var(--accent-hover);
+    }
+    
+    .status {
+      margin-top: 12px;
+      padding: 8px 12px;
+      border-radius: var(--border-radius);
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .status:not(:empty) {
+      opacity: 1;
+    }
+    
+    .status.success {
+      background-color: rgba(76, 175, 80, 0.2);
+      border-left: 3px solid var(--success-color);
+    }
+    
+    .status.error {
+      background-color: rgba(255, 82, 82, 0.2);
+      border-left: 3px solid var(--error-color);
+    }
+    
+    .footer {
+      font-size: 12px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Surfer</h1>
+  </div>
+  
+  <div class="card">
+    <div class="video-options">
+      <div class="video-option selected">
+        <input type="radio" id="video-1" name="video-selection" value="https://www.youtube.com/watch?v=zZ7AimPACzc" checked>
+        <label for="video-1">Subway Surfers</label>
+      </div>
+      <div class="video-option">
+        <input type="radio" id="video-2" name="video-selection" value="https://www.youtube.com/watch?v=NX-i0IWl3yg">
+        <label for="video-2">Minecraft Parkour</label>
+      </div>
+    </div>
+    
+    <button id="toggle-video">Add Video Overlay</button>
+    <div id="status" class="status"></div>
+  </div>
+  
+  <div class="footer">
+    Surfer Extension v1.0
+  </div>
+  
+  <script src="../src/popup.js"></script>
+</body>
+</html>

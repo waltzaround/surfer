@@ -1,0 +1,65 @@
+# Chrome Extension (Manifest V3) Guidelines
+
+## Project Structure
+
+- Keep a clean directory structure with separate folders for:
+  - `src/`: Source code
+  - `public/`: Static assets
+  - `dist/`: Build output (generated)
+
+## Manifest Guidelines
+
+- Always use the latest Manifest V3 format
+- Specify minimum required permissions only
+- Use declarativeNetRequest instead of webRequest where possible
+- Implement service workers instead of background pages
+- Use content_scripts for page interactions
+
+## Security Best Practices
+
+- Implement strict Content Security Policy (CSP)
+- Use host permissions instead of all_urls when possible
+- Sanitize any user input
+- Avoid eval() and inline scripts
+- Use storage.local instead of localStorage
+
+## Performance Guidelines
+
+- Keep service workers lightweight
+- Minimize DOM operations in content scripts
+- Use event-driven architecture
+- Implement proper cleanup in your scripts
+- Lazy-load resources when possible
+
+## Development Workflow
+
+- Use a modern build system (webpack, rollup, etc.)
+- Implement hot-reloading for development
+- Write unit tests for core functionality
+- Follow semantic versioning
+
+## Code Style
+
+- Use consistent naming conventions
+- Document public APIs and complex functions
+- Follow the principle of least privilege
+- Keep functions small and focused
+
+## Accessibility
+
+- Ensure UI elements have proper ARIA attributes
+- Support keyboard navigation
+- Test with screen readers
+- Use sufficient color contrast
+
+## Internationalization
+
+- Externalize user-facing strings
+- Support RTL languages if applicable
+- Use Chrome's i18n API
+
+## Debugging
+
+- Use Chrome's extension debugging tools
+- Implement proper error handling
+- Add logging in development builds
